@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr" class=" js cssanimations csstransitions">
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <title>Easy Hotel | Sales</title>
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+   <link rel="stylesheet" type="text/css" href="css/style_form.css">
+   <link rel="icon" type="imagenes/png" href="">
+ </head>
+
+  <body  style="background-color:#a0a0a0;">
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">Afiliación</a>
+      <a href="#">Cuentas asignadas</a>
+    
+    </div>
+    
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">☰</button> 
+    </div>
+    <style>
+      body {
+        font-family: "Lato", sans-serif;
+      }
+      
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+      
+      .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+      .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+      }
+      
+      .openbtn:hover {
+        background-color: #444;
+      }
+      
+      #main {
+        transition: margin-left .5s;
+        padding: 16px;
+      }
+      @media screen and (max-height: 450px) {
+        .sidebar {padding-top: 15px;}
+        .sidebar a {font-size: 18px;}
+      }
+      </style>
+  <form action="php/insert_sale.php" method="POST">
+    <table width="100%" height="120px" border="0" aling="center" cellpadding="1" cellspacing="0">
+      <tr>
+        <td width="10%" height="10px" align="center"  >
+                <img  height="10px" class="img-responsive" src="images/logo.png" aling="center"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="100%" height="80px" align="center">
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="11" id="ruc" name="ruc" placeholder="RUC" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="razon_social" name="razon_social" placeholder="Razón Social" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="dir_fiscal" name="dir_fiscal" placeholder="Dirc. Fiscal" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="9" id="telf_hotel" name="telf_hotel" placeholder="Telf. del Local" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="9" id="cel_hotel" name="cel_hotel" placeholder="Movil. del Local" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="30" id="correo_hotel" name="correo_hotel" placeholder="Correo del Local" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="web_hotel" name="web_hotel" placeholder="Web" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="facebook_hotel" name="facebook_hotel" placeholder="Facebook" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="instagram_hotel" name="instagram_hotel" placeholder="Instagram" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="twitter_hotel" name="twitter_hotel" placeholder="Twitter" />
+              </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+
+          <td width="100%" height="120px" align="center" >
+        <div class="container">
+              <div class="container" aling="right">
+                <div class="tabla_borde">
+                  <table width="100%" height="120px" border="0" cellpadding="0" cellspacing="0" align="right">
+                    <h3  align="center" >Servicios:</h3>
+                    <tr>
+                          <td width="30%" height="35px" align="left">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                              <br>
+                            </div>
+                          </td>
+                          <td width="20%" height="25px" align="left">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="visa" name="service[]" value="Visa">Visa</input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="marter_card" name="service[]" value="Master_Card">Master card</input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="parqueo"  name="service[]" value="Parqueo">Parqueo </input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="restaurant"  name="service[]" value="Restaurant">Restaurante</input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="bar"  name="service[]" value="Bar" >Bar </input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="servicio"  name="service[]" value="Servicio_habitación" >Servicio a la habitación </input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="tarifah"  name="service[]" value="Tarifa_horas" >Tarifa por horas</input>
+                                <br>
+                                <input align="rigth" type="checkbox" class="custom-control-input" id="vista_mar"  name="service[]" value="Vista_mar">Vista al mar</input>
+                                <br>
+                            </div>
+                          </td>
+                          <td width="20%" height="25px" align="left">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="piscina"  name="service[]" value="Piscina">Piscina </input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="piscina_temp"  name="service[]" value="Piscina_temp">Piscina temperada</input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="ascensor"  name="service[]" value="Ascensor">Ascensor</input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="sauna"  name="service[]" value="Sauna">Sauna</input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="gay_friend"  name="service[]" value="Gay_friendly">Gay friendly </input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="habitacion_tematica"  name="service[]" value="Habitación_temática">Habitación temática</input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="pet_friend"  name="service[]" value="Pet_friendly">Pet friendly </input>
+                              <br>
+                              <input align="rigth" type="checkbox" class="custom-control-input" id="discoteca"  name="service[]" value="Discoteca">Discoteca</input>
+                              <br>
+                            </div>
+                          </td>
+                          <td width="30%" height="35px" align="left">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                              <br>
+                            </div>
+                          </td>
+                    </tr>
+
+                  </table>
+
+          </div>
+        </div>
+      </div>
+          </td>
+
+      </tr>
+
+      <tr>
+        <td width="100%" height="120px" align="center">
+            <br>
+              <h3  align="center" >Datos del Gerente o Propietario</h3>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" id="nombres" name="nombres_propietario" placeholder="Nombres" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="20" id="apellidos" name="apellidos_propietario" placeholder="Apellidos" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="8" id="dni" name="dni_propietario" placeholder="DNI" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="9" id="cel_propietario" name="cel_propietario" placeholder="Núm. Celular" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" maxlength="9" id="telf_propietario" name="telf_propietario" placeholder="Núm. Fijo" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                <button type="button" class="btn btn-primary" >Agregar otros contactos</button>
+              </div>
+          </div>
+          <br>
+<div class="container">
+  <div class="imput-field">
+    <h3  align="center" >Datos de convenio</h3>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <!-- <label class="btn btn-secondary">
+                <button type="button" class="btn btn-primary btn-lg btn-block">Geolozalicación y Difusion Comercial Digital</button>
+              </label> -->
+              <label class="btn btn-secondary">
+                <button class="span4" type="button" class="btn btn-default btn-lg btn-block">Geolozalicación y Difusion Comercial Digital</button>
+            </label>
+              <br>
+            <label class="btn btn-secondary">
+              <button class="span4" type="button" class="btn btn-default btn-lg btn-block">SGH - Sistema de Gestión Hotelera</button>
+          </label>
+          <br>
+          <label class="btn btn-secondary">
+            <button class="span4" type="button" class="btn btn-default btn-lg btn-block">Geolozalicación y Difusion Comercial Digital + SGH</button>
+        </label>
+        </div>
+  </div>
+
+</div>
+<br>
+<div class="container">
+<div class="input-field">
+  <select class="span3" name="tiempo_convenio[]" id="departamento" class="form-control">
+    <option disabled selected>Tiempo de Convenio</option>>&#9733;
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="6">6</option>
+    <option value="9">9</option>
+    <option value="12">12</option>
+  </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    <select class="span2" class="form-control"  name="periodo[]" id="periodo">
+      <option value="months">Mes (es)</option>
+      <option value="years">Año (s)</option>
+    </select>
+  </div>
+</div>
+
+<div class="container">
+    <select class="span5" name="plan[]" id="categoria" class="form-control">
+        <option disabled selected>Plan de Convenio</option>
+        <option value="1">Tarifa 1 - RACK</option>
+        <option value="2">Tarifa 2 - PREFERENTE</option>
+        <option value="3">Tarifa 3 - CORPORATIVA</option>
+    </select>
+</div>
+<!-- <div class="container">
+<div class="input-field">
+  <select class="span4" name="convenio" id="convenio" class="form-control">
+    <option disabled selected>Plan de Convenio</option>>&#9733;
+    <option value="1">Tarifa 1 - RACK</option>
+    <option value="2">Tarifa 2 - PREFERENTE</option>
+    <option value="3">Tarifa 3 - CORPORATIVA</option>
+  </select>
+</div>
+</div> -->
+          <div class="container">
+              <div class="input-field">
+                      <input class="span5" type="text" id="cuotas" name="cuotas[]" placeholder="Número Cuotas" />
+              </div>
+          </div>
+          <div class="container">
+              <div class="input-field">
+                  <button id="send-mail" class="message-btn">Confirmar Convenio</button>
+              </div>
+
+          </div>
+
+
+
+
+        </td>
+      </tr>
+          </table>
+        </form>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+      <!-- </tr>
+    </table> -->
+    <div class="footer">
+            <div class="container">© Copyright Easy Hotel 2018 S.A.C. | Todos los derechos reservados</div>
+    </div>
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
+  </body>
+</html>
+
+
+
+<!--
+<html lang="es">
+
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Easy hotel</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="css/style_form.css" />
+
+
+        <link rel="icon" type="imagenes/png" href="">
+    </head>
+
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a href="#" class="brand">
+                        <img src="" alt="Logo" />
+
+                    </a>
+
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="icon-menu"></i>
+                    </button>
+
+                    <div class="nav-collapse collapse pull-right">
+                        <ul class="nav" id="top-navigation">
+                            <li class="active"><a href="Index.html">Inicio</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="section primary-section">
+            <div class="container">
+                <div class="title">
+                    <h1 >Bienvenido vendedor</h1>
+                </div>
+            </div>
+         </div>
+         <div id=formulario class= formulario>
+         <div id="contact" class="contact">
+               <div class="container">
+                    <div class="row-fluid">
+                        <div class="span5 contact-form centered">
+                            <h3>Formulario de contrato</h3>
+                            <br>
+                            <br>
+                            <div id="successSend" class="alert alert-success invisible">
+                                <strong>Enviado Correctamente!</strong></div>
+                            <div id="errorSend" class="alert alert-error invisible">Hubo un error.</div>
+                            <form id="contact-form" action="php/mail.php">
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input class="span12" type="text" id="DNI" name="DNI" placeholder="DNI" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                            <input class="span12" type="text" id="plan" name="plan" placeholder="Tipo de plan" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                        <div class="controls">
+                                                <input class="span12" type="date" id="date" name="date" />
+                                        </div>
+                                    </div>
+                                <div class="control-group">
+                                        <div class="controls">
+                                                    <input class="span12" type="date" id="date" name="date" />
+                                        </div>
+                                    </div>
+                                <div class="control-group">
+                                        <div class="controls">
+                                                    <input class="span12" type="text" id="monto" name="monto" placeholder="monto" />
+                                        </div>
+                                </div>
+                                <div class="control-group">
+                                        <div class="controls">
+                                                    <input class="span12" type="text" id="Renovación" name="Renovación" placeholder="Renovación" />
+                                        </div>
+                                </div>
+                                <div class="control-group">
+                                        <div class="controls">
+                                                    <input class="span12" type="text" id="persona" name="persona" placeholder="persona" />
+                                        </div>
+                                </div>
+
+
+                                <br>
+                                <br>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <button id="send-mail" class="message-btn">Enviar información</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="footer">
+
+                <div class="container">Copyright Easy Hotel 2018 S.A.C. | Todos los derechos reservados</div>
+        </div>
+        <div class="scrollup">
+            <a href="#">
+                <i class="icon-up-open"></i>
+            </a>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="js/jquery.bxslider.js"></script>
+        <script type="text/javascript" src="js/jquery.cslider.js"></script>
+        <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="js/jquery.inview.js"></script>
+
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html> -->
